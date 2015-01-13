@@ -1,0 +1,1 @@
+Meteor.publish  "datasetList",-> Datasets.find({},{fields:{title:1}});

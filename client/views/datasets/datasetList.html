@@ -1,0 +1,30 @@
+<template name="datasetList">
+
+      {{#each datasets}}
+        <div class="col-md-3">
+        {{>datasetItem}}
+        </div>
+      {{/each}}
+
+</template>
+
+<template name="datasetItem">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="text-primary box-title">{{title}}</h3>
+            <div class="pull-right box-tools">
+                <a href="{{pathFor 'manage-dataset'}}" >
+                    <i class="text-blue fa fa-cog"></i></a>
+               {{#afModal  collection="Datasets" operation="remove" doc=_id}}
+                    <i class="text-red fa fa-times"></i>
+                {{/afModal}}
+
+               <!-- <a  href="#afModal" data-toggle="modal" collection="Datasets" operation="remove" doc="{{_id}}">
+                    <i class="text-red fa fa-times"></i>
+                </a>-->
+            </div>
+        </div>
+        <div class="box-body"></div>
+    </div>
+
+</template>

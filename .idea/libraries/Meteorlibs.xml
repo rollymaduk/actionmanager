@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Meteorlibs" type="javaScript">
+    <CLASSES />
+    <DOCUMENTATION>
+      <root url="https://github.com/meteor-typescript/meteor-typescript-libs" />
+    </DOCUMENTATION>
+    <SOURCES />
+  </library>
+</component>
