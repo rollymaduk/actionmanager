@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/client/controllers/datasets/dataload_selection.coffee" libraries="{Meteorlibs}" />
     <file url="file://$PROJECT_DIR$/lib/collections/myfiles.coffee" libraries="{Meteorlibs}" />
     <file url="PROJECT" libraries="{jQuery UI-1.10.2, jQuery-2.0.0, meteor-misc-packages, meteor-packages-auto-import-browser, meteor-packages-auto-import-os}" />
     <includedPredefinedLibrary name="Meteor project library" />

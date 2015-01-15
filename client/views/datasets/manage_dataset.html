@@ -1,7 +1,11 @@
 <template name="manageDataset">
-{{#each tables}}
-{{>tableview}}
-  {{/each}}
+    {{#with selectedDataset}}
+        {{#each tables}}
+            <div class="col-md-3">
+                {{>tableview}}
+            </div>
+        {{/each}}
+    {{/with}}
 </template>
 
 <template name="tableview">
@@ -9,7 +13,7 @@
         <div class="box-header">
             <h3 class="text-primary box-title">{{title}}</h3>
             <div class="pull-right box-tools">
-                <a href="#af" >
+                <a href="#" >
                     <i class="text-blue fa fa-cog"></i></a>
                 <a  href="#">
                     <i class="text-red fa fa-times"></i>

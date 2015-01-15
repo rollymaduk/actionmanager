@@ -11,8 +11,20 @@ Schema.Field=new SimpleSchema(
 Schema.Table=new SimpleSchema(
   title:
     type:String
+    autoform:
+      label:false
+      afFieldInput:
+        type:'editable-input'
   fields:
     type:[Schema.Field]
+  isSaved:
+    type:Boolean
+    defaultValue:false
+    autoform:
+      label:false
+      afFieldInput:
+        type:'hidden'
+
 )
 Schema.Dataset=new SimpleSchema(
   title:
@@ -20,7 +32,8 @@ Schema.Dataset=new SimpleSchema(
     max:200
   tables:
     type:[Schema.Table]
-    optional:true
+    defaultValue:[]
+
 )
 
 

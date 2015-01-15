@@ -24,5 +24,6 @@ Router.map ()->
     ->
       setPage('Manage','client name','datasetTables_menu')
       this.next()
+  ,waitOn:-> bigSubs.subscribe('datasetItem',@params._id)
   )
   return null
