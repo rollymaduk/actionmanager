@@ -1,27 +1,74 @@
 <template name="manageDataset">
-    {{#with selectedDataset}}
         {{#each tables}}
             <div class="col-md-3">
                 {{>tableview}}
             </div>
         {{/each}}
-    {{/with}}
 </template>
 
 <template name="tableview">
-    <div class="box box-primary">
-        <div class="box-header">
-            <h3 class="text-primary box-title">{{title}}</h3>
-            <div class="pull-right box-tools">
-                <a href="#" >
-                    <i class="text-blue fa fa-cog"></i></a>
-                <a  href="#">
-                    <i class="text-red fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="box-body">
+    {{#if hasfile}}
+            {{>unloadedTable}}
+        {{else}}
+            {{>loadedTable}}
+    {{/if}}
+</template>
+<template name="loadedTable">
+    <div class="small-box bg-blue ">
 
+        <div class="inner load-data"  style="cursor:pointer" >
+            <h4>{{title}}</h4>
+            <p><b><i class="fa fa-table "></i> {{rows}} records</b>
+                <br/>
+                <span class="small"><i class="fa fa-upload"></i> click to load pending data </span>
+            </p>
         </div>
+        <div class="icon load-data"  style="cursor:pointer">
+            <i class="fa fa-table"></i>
+        </div>
+
+        <div class="small-box-footer" >
+
+            <a  href="#" class="edit-table" style="color:#000000">
+                <i class="fa fa-edit "></i>
+            </a>
+            <a  href="#" style="color:#000000">
+                <i class="fa fa-times "></i>
+            </a>
+        </div>
+        {{#if isProcessing}}
+            <div class="overlay"></div>
+            <div class="loading-img"></div>
+        {{/if}}
+    </div>
+</template>
+
+<template name="unloadedTable">
+    <div class="small-box bg-gray ">
+
+        <div class="inner load-data"  style="cursor:pointer" >
+            <h4>{{title}}</h4>
+            <p><b><i class="fa fa-warning "></i> Pending</b>
+                <br/>
+                <span class="small"><i class="fa fa-upload"></i> click to load pending data </span>
+            </p>
+        </div>
+        <div class="icon load-data"  style="cursor:pointer">
+            <i class="fa fa-upload"></i>
+        </div>
+
+        <div class="small-box-footer" >
+
+            <a  href="#" class="edit-table" style="color:#000000">
+                <i class="fa fa-edit "></i>
+            </a>
+            <a  href="#" style="color:#000000">
+                <i class="fa fa-times "></i>
+            </a>
+        </div>
+        {{#if isProcessing}}
+        <div class="overlay"></div>
+        <div class="loading-img"></div>
+        {{/if}}
     </div>
 </template>

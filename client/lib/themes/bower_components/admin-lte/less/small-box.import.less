@@ -87,6 +87,29 @@
             -moz-animation-fill-mode: forwards;
         }
     }
+
+    // Box overlay for LOADING STATE effect
+    > .overlay, > .loading-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    > .overlay {
+        z-index: 1010;
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    > .overlay.dark {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    > .loading-img {
+        z-index: 1020;
+        background: transparent url('/img/ajax-loader1.gif') 50% 50% no-repeat;
+    }
 }
 
 // Transform: rotate -10 degrees within 500 milliseconds

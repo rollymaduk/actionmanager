@@ -15,24 +15,33 @@ Schema.Table=new SimpleSchema(
       label:false
       afFieldInput:
         type:'editable-input'
-  fields:
-    type:[Schema.Field]
-  isSaved:
-    type:Boolean
-    defaultValue:false
+  dataset:
+    type:String
+    defaultValue:''
     autoform:
       label:false
-      afFieldInput:
-        type:'hidden'
+      type:'hidden'
+  fields:
+    type:[Schema.Field],
+  source:
+    type:String
+    defaultValue:'excel'
+    autoform:
+      type:'hidden'
+      label:false
+  isProcessing:
+    type:String
+    defaultValue:'f'
+    autoform:
+      label:false
+      type:'hidden'
 
 )
 Schema.Dataset=new SimpleSchema(
   title:
     type:String
     max:200
-  tables:
-    type:[Schema.Table]
-    defaultValue:[]
+
 
 )
 

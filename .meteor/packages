@@ -18,3 +18,8 @@ meteorhacks:subs-manager
 mrt:filecollection
 reactive-var
 workman:meteor-editable
+cottz:publish-with-relations
+meteorhacks:npm
+
+
+npm-container

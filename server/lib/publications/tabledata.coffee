@@ -1,0 +1,1 @@
+Meteor.publish 'tabledata',()->TableData.find({},{limit:20})

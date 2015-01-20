@@ -2,20 +2,48 @@ Template.manageTable.helpers
   tableObj:
     ->
       myTable=Template.currentData()
-      Schema.Table.clean(myTable)
+      Schema.Table.clean(myTable) if !myTable._id
       return myTable
+
+Template.manageTable.destroyed=->
+  Myfiles.resumable.events.length=0
+  Myfiles.resumable.files.length=0;
+
+
+saveTable = (table,file) ->
+  Meteor.call 'saveUpdateTable',table.$set._id,table,file,(err, res)->
+    slidePanel.closePanel();
+
+Template.manageTable.rendered=->
+  Myfiles.resumable.on 'fileSuccess',(file)->
+    table=Session.get('selectedTable')
+    saveTable(table,file.uniqueIdentifier)
+    return null
+  return null
 
 AutoForm.hooks
   mt:
     onSubmit:
       (ins,upd,curr)->
-        dataset=Session.get('selectedDataset')
-        switch
-          when curr.isSaved then (table=ins for table in dataset.tables when table.title is curr.title)
-          else
-            dataset.tables.push(ins)
-            Session.set('selectedDataset',dataset)
-            slidePanel.closePanel()
+        upd.$set._id=curr._id
+        Session.set('selectedTable',upd)
+
+        if Myfiles.resumable.files.length>0
+          for file in Myfiles.resumable.files
+            do(file)->
+              Myfiles.insert
+                _id:file.uniqueIdentifier
+                filename:file.filename
+                contentType:file.file.type
+                metadata:
+                  file:file.uniqueIdentifier
+                ,(err,id)->
+                  Myfiles.resumable.upload() if !err
+                  return null
+              return null
+        else
+          table=Session.get('selectedTable')
+          saveTable(table,null)
         this.done()
         return false
   ,true
