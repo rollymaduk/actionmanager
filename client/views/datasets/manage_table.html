@@ -1,3 +1,28 @@
 <template name="manageTable">
-    {{>quickForm id='mt' template="datasetTable" schema='Schema.Table' doc=tableObj}}
+    {{#autoForm id='mt'   schema='Schema.Table' doc=tableObj}}
+
+    <div class="box box-info">
+        <div class="box-header">
+            <i class="fa fa-table"></i>
+            <h3 class="box-title">{{>afQuickField name="title" }}</h3>
+            <div class="box-tools pull-right">
+                {{#if haslinkage}}
+                    <a href="#" class="btn btn-info btn-sm managelinkage"><i class="fa fa-link"></i> manage linkages</a>
+                {{else}}
+                    <a href="#" class="btn btn-warning btn-sm managelinkage"><i class="fa fa-link"></i> add linkages</a>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="box-body">
+            {{>afQuickField name='fields' template="datasetTable" }}
+            {{>afQuickField name='dataset' }}
+            {{>afQuickField name='isProcessing'}}
+            {{>afFieldInput label=false type="hidden" name='relations'}}
+        </div>
+
+        <div class="box-footer"><button type="submit" class="btn btn-primary">Insert</button></div>
+    </div>
+
+    {{/autoForm}}
 </template>

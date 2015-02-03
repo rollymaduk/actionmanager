@@ -14,28 +14,21 @@
     {{/if}}
 </template>
 <template name="loadedTable">
-    <div class="small-box bg-blue ">
+    <div class="small-box bg-aqua ">
 
-        <div class="inner load-data"  style="cursor:pointer" >
+        <div class="inner edit-table"  style="cursor:pointer" >
             <h4>{{title}}</h4>
             <p><b><i class="fa fa-table "></i> {{rows}} records</b>
                 <br/>
-                <span class="small"><i class="fa fa-upload"></i> click to load pending data </span>
+                <span class="small"><i class="fa fa-cog"></i> click here to manage</span>
             </p>
         </div>
-        <div class="icon load-data"  style="cursor:pointer">
+        <div class="icon edit-table"  style="cursor:pointer">
             <i class="fa fa-table"></i>
         </div>
+        {{>tablesFooter}}
 
-        <div class="small-box-footer" >
 
-            <a  href="#" class="edit-table" style="color:#000000">
-                <i class="fa fa-edit "></i>
-            </a>
-            <a  href="#" style="color:#000000">
-                <i class="fa fa-times "></i>
-            </a>
-        </div>
         {{#if isProcessing}}
             <div class="overlay"></div>
             <div class="loading-img"></div>
@@ -57,18 +50,18 @@
             <i class="fa fa-upload"></i>
         </div>
 
-        <div class="small-box-footer" >
-
-            <a  href="#" class="edit-table" style="color:#000000">
-                <i class="fa fa-edit "></i>
-            </a>
-            <a  href="#" style="color:#000000">
-                <i class="fa fa-times "></i>
-            </a>
-        </div>
+        {{>tablesFooter}}
         {{#if isProcessing}}
         <div class="overlay"></div>
         <div class="loading-img"></div>
         {{/if}}
+    </div>
+</template>
+
+<template name="tablesFooter">
+    <div class="small-box-footer">
+        {{#quickRemoveButton class='link'  beforeRemove=beforeRemove collection="Tables"  _id=this._id}}
+            <i class="fa fa-times-circle  "></i>
+        {{/quickRemoveButton}}
     </div>
 </template>

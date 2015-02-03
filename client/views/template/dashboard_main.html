@@ -1,0 +1,28 @@
+<template name="dashboard_main">
+    <html>
+
+    <body class="skin-black fixeds">
+    <!-- header logo: style can be found in header.less -->
+    {{>dashboard_header}}
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side strech">
+            <!-- Content Header (Page header) -->
+
+
+            <!-- Main content -->
+            <section class="content">
+
+                {{>yield}}
+            </section><!-- /.content -->
+        </aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+
+    {{> autoformModals}}
+    {{>slidePanel}}
+    </body>
+    </html>
+</template>

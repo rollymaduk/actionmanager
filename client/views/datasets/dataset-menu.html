@@ -1,7 +1,7 @@
 <template name="datasetList_menu">
 <ol class="breadcrumb">
     <li>{{#afModal title="New Dataset" doc="" fields="title" collection="Datasets" operation="insert"}}
-        <i class="fa fa-plus">
+        <i class="fa fa-plus-square">
     </i>add new dataset
     {{/afModal}}
 </li>
@@ -13,11 +13,22 @@
 <template name="datasetTables_menu">
     <ol class="breadcrumb">
         <li><a id="addtable" href="#">
-            <i class="fa fa-plus">
+            <i class="fa fa-plus-square">
             </i>add new table
             </a>
         </li>
 
     </ol>
 
+</template>
+
+<template name="datasetDashboard_menu">
+    <ol class="breadcrumb">
+        <li>
+            <a id="addDashboard" href="#">
+                <i class="fa fa-plus-square"></i>
+                add new Dashboard
+            </a>
+        </li>
+    </ol>
 </template>

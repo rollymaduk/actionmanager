@@ -1,0 +1,15 @@
+<template name="createDashboard">
+    <div class="box box-info">
+        <div class="box-header">
+            <div class="h3 box-title">New Dashboard</div>
+            <div class="box-tools pull-right">
+
+            </div>
+
+        </div>
+        <div class="box-body">
+            {{>quickForm collection='Dashboards' id='cd' doc=newDashboard type='insert' fields='title,dataset'}}
+        </div>
+    </div>
+
+</template>

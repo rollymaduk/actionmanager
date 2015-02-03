@@ -1,30 +1,38 @@
 <template name="datasetList">
 
       {{#each datasets}}
-        <div class="col-md-3">
+        <div  class="col-md-3">
         {{>datasetItem}}
         </div>
       {{/each}}
 
 </template>
 
+
 <template name="datasetItem">
-    <div class="box box-primary">
-        <div class="box-header">
-            <h3 class="text-primary box-title">{{title}}</h3>
-            <div class="pull-right box-tools">
-                <a href="{{pathFor 'manage-dataset'}}" >
-                    <i class="text-blue fa fa-cog"></i></a>
-               {{#afModal  collection="Datasets" operation="remove" doc=_id}}
-                    <i class="text-red fa fa-times"></i>
-                {{/afModal}}
+    <div class="small-box bg-blue ">
 
-               <!-- <a  href="#afModal" data-toggle="modal" collection="Datasets" operation="remove" doc="{{_id}}">
-                    <i class="text-red fa fa-times"></i>
-                </a>-->
-            </div>
+        <div class="inner view-dashboards"  style="cursor:pointer" >
+            <h4>{{title}}</h4>
+            <p><b><i class="fa fa-dashboard "></i> {{rows}} dashboards</b>
+                <br/>
+                <span class="small"><i class="fa fa-hand-o-up"></i> click here to view</span>
+            </p>
         </div>
-        <div class="box-body"></div>
-    </div>
+        <a class="icon "  href="{{pathFor 'dashboardList'}}">
+            <i class="fa fa-dashboard"></i>
+        </a>
+        {{>datasetFooter}}
 
+    </div>
+</template>
+
+<template name="datasetFooter">
+    <div class="small-box-footer">
+        <a  href="{{pathFor 'manage-dataset'}}" >
+            <i class="fa fa-cog"></i></a>
+        {{#afModal  collection="Datasets" operation="remove" doc=_id}}
+            <i class="fa fa-times-circle"></i>
+        {{/afModal}}
+    </div>
 </template>

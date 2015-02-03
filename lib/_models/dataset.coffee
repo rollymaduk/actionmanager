@@ -8,13 +8,22 @@ Schema.Field=new SimpleSchema(
     type:Boolean
     defaultValue:true
 )
+
+Schema.Relation=new SimpleSchema
+  table:
+    type:String
+  from:
+    type:String
+  to:
+    type:String
+
 Schema.Table=new SimpleSchema(
   title:
     type:String
     autoform:
       label:false
       afFieldInput:
-        type:'editable-input'
+        type:'contenteditable'
   dataset:
     type:String
     defaultValue:''
@@ -23,18 +32,17 @@ Schema.Table=new SimpleSchema(
       type:'hidden'
   fields:
     type:[Schema.Field],
-  source:
-    type:String
-    defaultValue:'excel'
-    autoform:
-      type:'hidden'
-      label:false
   isProcessing:
-    type:String
-    defaultValue:'f'
+    type:Boolean
+    optional:true
+    defaultValue:false
     autoform:
       label:false
       type:'hidden'
+  relations:
+    type:[Schema.Relation]
+    optional:true
+    defaultValue:[]
 
 )
 Schema.Dataset=new SimpleSchema(

@@ -1,0 +1,37 @@
+<template name="dashboardList">
+
+    {{#each dashboards}}
+    <div class="col-md-4">
+        {{>dashboardItem}}
+    </div>
+    {{/each}}
+
+</template>
+<template name="dashboardItem">
+    <div class="box box-solid ">
+        <div class="box-header">
+            <i class="fa fa-dashboard"></i>
+            <h3 class="box-title">
+                {{title}}
+            </h3>
+            <div class="box-tools pull-right">
+                <a href="#">
+
+                    <span class="label label-default"><i class="fa fa-comments"></i> 0</span>
+                </a>
+                <a href="#">
+
+                    <span class="label label-default"><i class="fa fa-tasks"></i> 0</span>
+                </a>
+            </div>
+        </div>
+        <div  class="box-body chart chart-responsive" >
+            <a href="{{pathFor 'dashboard'}}" style="text-decoration: none;color:inherit">
+                {{>sparkline array=watchValues options=options}}
+            </a>
+
+        </div>
+
+    </div>
+
+</template>

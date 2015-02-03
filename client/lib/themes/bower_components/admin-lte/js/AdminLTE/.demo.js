@@ -1,5 +1,5 @@
 $(function() {
-    /* For demo purposes */
+    /* For .demo purposes */
     var demo = $("<div />").css({
         position: "fixed",
         top: "150px",

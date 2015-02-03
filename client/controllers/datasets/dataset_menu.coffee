@@ -3,3 +3,8 @@ Template.datasetTables_menu.events
     (ev,temp)->
       slidePanel.showPanel('dataloadSelection')
       return null
+
+Template.datasetDashboard_menu.events
+  'click #addDashboard':
+    (evt,temp)->
+      slidePanel.showPanel('createDashboard')

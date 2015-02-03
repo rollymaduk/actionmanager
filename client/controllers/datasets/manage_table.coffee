@@ -4,14 +4,23 @@ Template.manageTable.helpers
       myTable=Template.currentData()
       Schema.Table.clean(myTable) if !myTable._id
       return myTable
+  haslinkage:
+    ->Template.currentData()?.relations?.length>=1
+
+
 
 Template.manageTable.destroyed=->
   Myfiles.resumable.events.length=0
   Myfiles.resumable.files.length=0;
 
+Template.manageTable.events
+  'click .managelinkage':(evt,temp)->
+    slidePanel.showPanel 'manageRelation',Template.currentData()
+
 
 saveTable = (table,file) ->
   Meteor.call 'saveUpdateTable',table.$set._id,table,file,(err, res)->
+    ###on error clean uploaded file from server###
     slidePanel.closePanel();
 
 Template.manageTable.rendered=->

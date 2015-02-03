@@ -1,7 +1,6 @@
 @bigSubs=new SubsManager({cacheLimit: 9999, expireIn: 9999});
 
-Router.configure {layoutTemplate:'main',yieldTemplates:{'sidebar':{to:'sidebar'}}}
-
+Router.configure {layoutTemplate:'main'}
 
 Router.map ()->
   this.route('home',path:'/',
@@ -30,4 +29,22 @@ Router.map ()->
       bigSubs.subscribe('tabledata')
 
   )
+
+  this.route 'dashboardList',path:'/dashboards/:_id',
+  data:
+    ->return Datasets.findOne(@params._id)
+
+  ,onAfterAction:
+    ->setPage('Dashboards','client','datasetDashboard_menu')
+  ,waitOn:
+    ->bigSubs.subscribe('dashboardsByDataset',@params._id)
+
+  this.route 'dashboard',path:'/dashboard/:_id',
+  data:
+    ->return Dashboards.findOne(@params._id)
+  ,onAfterAction:
+    ->setPage('Dashboard','client','datasetDashboard_menu')
+  ,waitOn:
+    ->bigSubs.subscribe('dashboards',@params._id)
+
   return null

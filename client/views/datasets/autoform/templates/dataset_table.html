@@ -1,5 +1,5 @@
 <template name="afArrayField_datasetTable">
-    <div class="box box-default">
+
         <div class="table-responsive">
             <table class="table table-condensed table-hover">
                 <tbody>
@@ -10,12 +10,12 @@
                 {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
                     <tr>
                         <td>{{> afFieldInput type='boolean-checkbox2' name=this.current.isVisible label=false }}</td>
-                        <td>{{> afFieldInput type='editable-input' name=this.current.alias label=false }}</td>
+                        <td>{{> afFieldInput type='contenteditable' name=this.current.alias label=false }}</td>
                         {{> afFieldInput type='hidden' name=this.current.title label=false }}
                     </tr>
                 {{/afEachArrayItem}}
                 </tbody>
             </table>
         </div>
-    </div>
+
 </template>

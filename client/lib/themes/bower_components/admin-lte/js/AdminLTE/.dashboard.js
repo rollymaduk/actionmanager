@@ -270,7 +270,7 @@ $(function() {
 
     /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
     $("#loading-example").boxRefresh({
-        source: "ajax/dashboard-boxrefresh-demo.php",
+        source: "ajax/dashboard-boxrefresh-.demo.php",
         onLoadDone: function(box) {
             bar = new Morris.Bar({
                 element: 'bar-chart',

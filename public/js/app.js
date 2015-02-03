@@ -487,7 +487,7 @@ $(window).load(function() {
         var settings = $.extend({
             //Refressh button selector
             trigger: ".refresh-btn",
-            //File source to be loaded (e.g: ajax/src.php)
+            //File source to be loaded (e.g: ajax/.src.php)
             source: "",
             //Callbacks
             onLoadStart: function(box) {
