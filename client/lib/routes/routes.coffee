@@ -4,10 +4,9 @@ Router.configure {layoutTemplate:'main'}
 
 Router.map ()->
   this.route('home',path:'/',
-  onBeforeAction:
+  onAfterAction:
       ->
         setPage("Home",'client name','datasetList_menu')
-        this.next()
   ,waitOn:
       ->
         bigSubs.subscribe('datasetList')
@@ -43,8 +42,9 @@ Router.map ()->
   data:
     ->return Dashboards.findOne(@params._id)
   ,onAfterAction:
-    ->setPage('Dashboard','client','datasetDashboard_menu')
+    ->
+      # set title for dashboard here#####
+      @layout 'dashboard_main'
   ,waitOn:
     ->bigSubs.subscribe('dashboards',@params._id)
-
   return null
