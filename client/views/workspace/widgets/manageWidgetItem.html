@@ -1,0 +1,68 @@
+<template name="manageWidgetItem">
+    <div class="box-solid">
+        <div class="box-header">
+            <h3 class="box-title">Widget</h3>
+        </div>
+        <div class="box-body">
+            {{#autoForm collection='Widgets' id='wf' type=formType doc=widgetObj}}
+            <div class="box-group" id="accordion">
+                <div class="panel box box-info">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="accordion" href="#collapseOne">
+                            General
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" id="collapseOne">
+                        <div class="box-body">
+                            {{>afQuickField  name='title'}}
+                            {{>afQuickField  name='type'}}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel box box-warning">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="accordion" href="#collapseTwo">
+                                Datasource
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse " id="collapseTwo">
+                        <div class="box-body">
+                            {{>afQuickField  name='data.table' options=tables}}
+                            {{>afQuickField  name='data.group' options=groups}}
+                            {{>afQuickField  name='data.aggregate'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel box box-success">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="accordion" href="#collapseThree">
+                                Data values
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse " id="collapseThree">
+                        <div class="box-body">
+                            <ul class="todo-list">
+                                <li><a href="#" style="text-decoration: none" class="manage-values"><i class="fa fa-plus"></i> <span class="text">add new</span></a></li>
+                                {{#each values}}
+                                <li><span class="text">{{name}}</span>
+
+                                    <div class="tools"><i class="fa fa-edit"></i><i class="fa fa-trash-o"></i></div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/autoForm}}
+        </div>
+    </div>
+
+</template>

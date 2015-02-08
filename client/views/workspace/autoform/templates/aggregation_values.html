@@ -1,0 +1,27 @@
+<template name="afArrayField_aggregationValues">
+    <div class="table-responsive">
+
+        <table class="table table-condensed">
+            <tbody>
+            <tr>
+                <th>Name</th><th>Operator</th><th>Values</th><th> {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+
+                <button type="button" class="btn btn-sm btn-primary autoform-add-item " data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}">
+                    <i class="fa fa-plus"></i> add</button>
+
+            {{/if}}</th>
+            </tr>
+            {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+                <tr>
+                    <td>{{> afFieldInput class="small" name=this.current.name  }}</td>
+                    <td>{{> afFieldInput class="small" name=this.current.operator  }}</td>
+                    <td> {{> afFieldInput class="small"  name=this.current.values type="selectize" selectize=valuesSelectize }}</td>
+                    <td> {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+                        <a href="#" class="autoform-remove-item "><i class="fa fa-trash-o"></i></a>
+                    {{/if}}</td>
+                </tr>
+            {{/afEachArrayItem}}
+            </tbody>
+        </table>
+    </div>
+</template>

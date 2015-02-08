@@ -1,6 +1,9 @@
+Template.body.rendered=->
+  $('body').addClass('skin-blue')
+
 Template.main.rendered=
   ->
-    $.getScript('js/app.js')
+    $.getScript('/js/app.js')
     slidePanel.overlay(true)
     return null
 
