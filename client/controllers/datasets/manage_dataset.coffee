@@ -17,9 +17,6 @@ Template.tableview.helpers
     file=Myfiles.findOne({'metadata.table':Template.currentData()._id})
     !_.isEmpty(file)
 
-
-
-
 ###Template.unloadedTable.helpers
   isProcessing:
     ->Template.currentData().isProcessing=='t'###
@@ -53,4 +50,3 @@ Template.manageDataset.helpers
   tables:
     ->Tables.find({dataset:Template.instance().data._id})
 
-Autoform.addHooks null,before:->

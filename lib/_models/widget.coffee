@@ -1,3 +1,32 @@
+Schema.FilterSchema=new SimpleSchema
+  field:
+    type:String
+  groupOperator:
+    type:String
+    defaultValue:'$and'
+    allowedValues:
+      ['$and','$or']
+    autoform:
+      options:[
+        {label:'and',value:'$and'}
+        {lable:'or',value:'$or'}
+      ]
+  operator:
+    type:String
+    allowedValues:
+      ['none','$gt','$gte','$in','$lt','$lte','$ne','$nin']
+    autoform:
+      options:[
+        {label:'equal',value:'none'}
+        {label:'greater than',value:'$gt'}
+        {label:'greater or equal',value:'$gte'}
+        {label:'contains',value:'$in'}
+        {label:'less than',value:'$lt'}
+        {label:'less or equal',value:'$lte'}
+        {label:'not equal',value:'$ne'}
+        {label:'does not contain',value:'$nin'}
+      ]
+
 Schema.ValueSchema=new SimpleSchema
   name:
     type:String
@@ -12,11 +41,11 @@ Schema.ValueSchema=new SimpleSchema
         {label:'Multiply',value:'$multiply'}
         {label:'Add',value:"$add"}
         {label:'Divide',value:"$divide"}
-        {label: 'Subtract',value:"$subtract"}
+        {label:'Subtract',value:"$subtract"}
         ]
   values:
     type:[String]
-    optional:true
+    defaultValue:[]
 
 
 Schema.Widget=new SimpleSchema
@@ -31,10 +60,12 @@ Schema.Widget=new SimpleSchema
     label:"Group by"
     type:String
   'data.values':
+    defaultValue:[]
     type:[Schema.ValueSchema]
   'data.aggregate':
     type:String
     allowedValues:['$avg','$sum','none']
+    defaultValue:'none'
     autoform:
       options:[
         {label:"Average",value:'$avg'}

@@ -24,6 +24,7 @@ Template.widgetSelection.rendered=->
         ###move chart obj to main widget###
         type=self.type.get()
         widget={title:"new #{type}",type:type}
+        Schema.Widget.clean widget
         slidePanel.showPanel 'manageWidgetItem',widget
         @done()
         false

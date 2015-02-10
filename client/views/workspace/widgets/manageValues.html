@@ -1,3 +1,12 @@
 <template name="manageValues">
 
+
+        {{#autoForm schema="Schema.ValueSchema" doc=this id='mv'}}
+         <fieldset>
+            {{>afQuickField name='name'}}
+            {{>afQuickField name='operator'}}
+            {{>afQuickField name='values' type="selectize" selectize=valuesSelectize}}
+        </fieldset>
+            <button type="submit" class="btn btn-primary">Insert</button>
+    {{/autoForm}}
 </template>
