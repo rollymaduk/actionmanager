@@ -1,9 +1,8 @@
 <template name="manageValues">
-
-
-        {{#autoForm schema="Schema.ValueSchema" doc=this id='mv'}}
+ {{#autoForm schema="Schema.ValueSchema" doc=this id='mv'}}
          <fieldset>
             {{>afQuickField name='name'}}
+             {{>afQuickField  name='aggregate'}}
             {{>afQuickField name='operator'}}
             {{>afQuickField name='values' type="selectize" selectize=valuesSelectize}}
         </fieldset>

@@ -12,6 +12,7 @@ Template.manageTable.helpers
 Template.manageTable.destroyed=->
   Myfiles.resumable.events.length=0
   Myfiles.resumable.files.length=0;
+  Session.set 'selectedTable',undefined
 
 Template.manageTable.events
   'click .managelinkage':(evt,temp)->

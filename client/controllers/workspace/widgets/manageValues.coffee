@@ -16,6 +16,7 @@ AutoForm.hooks
       widget.data.values=holder
       console.log widget
       @done()
+      @resetForm()
       slidePanel.showPanel 'manageWidgetItem',widget
       false
   ,true

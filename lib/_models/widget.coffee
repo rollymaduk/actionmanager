@@ -1,6 +1,4 @@
 Schema.FilterSchema=new SimpleSchema
-  field:
-    type:String
   groupOperator:
     type:String
     defaultValue:'$and'
@@ -11,6 +9,8 @@ Schema.FilterSchema=new SimpleSchema
         {label:'and',value:'$and'}
         {lable:'or',value:'$or'}
       ]
+  field:
+    type:String
   operator:
     type:String
     allowedValues:
@@ -26,11 +26,27 @@ Schema.FilterSchema=new SimpleSchema
         {label:'not equal',value:'$ne'}
         {label:'does not contain',value:'$nin'}
       ]
+  value:
+    type:[String]
+
 
 Schema.ValueSchema=new SimpleSchema
   name:
+    label:"Value title"
     type:String
     defaultValue:'count'
+  aggregate:
+    type:String
+    allowedValues:['$avg','$sum','$min','$max','none']
+    defaultValue:'none'
+    autoform:
+      options:[
+        {label:"Average",value:'$avg'}
+        {label:"Sum",value:'$sum'}
+        {label:"Max",value:'$max'}
+        {label:"Min",value:'$min'}
+        {label:"Count",value:'none'}
+      ]
   operator:
     type:String
     defaultValue:'none'
@@ -49,6 +65,10 @@ Schema.ValueSchema=new SimpleSchema
 
 
 Schema.Widget=new SimpleSchema
+  dashboard:
+    type:String
+    autoform:
+      type:'hidden'
   title:
     type:String
   type:
@@ -59,19 +79,13 @@ Schema.Widget=new SimpleSchema
   'data.group':
     label:"Group by"
     type:String
+  'data.filters':
+    defaultValue:[]
+    type:[Schema.FilterSchema]
   'data.values':
     defaultValue:[]
     type:[Schema.ValueSchema]
-  'data.aggregate':
-    type:String
-    allowedValues:['$avg','$sum','none']
-    defaultValue:'none'
-    autoform:
-      options:[
-        {label:"Average",value:'$avg'}
-        {label:"Sum",value:'$sum'}
-        {label:"Count",value:'none'}
-      ]
+
   widget:
     type:Object
     blackbox:true

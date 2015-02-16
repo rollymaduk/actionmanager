@@ -23,7 +23,7 @@ Template.widgetSelection.rendered=->
       onSubmit:(ins,upd,doc)->
         ###move chart obj to main widget###
         type=self.type.get()
-        widget={title:"new #{type}",type:type}
+        widget={title:"new #{type}",type:type,widget:ins,dashboard:self.data._id}
         Schema.Widget.clean widget
         slidePanel.showPanel 'manageWidgetItem',widget
         @done()

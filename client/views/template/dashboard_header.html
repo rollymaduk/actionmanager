@@ -1,8 +1,9 @@
 <template name="dashboard_header">
     <header class="header">
+
         <a href="#" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            Actionmanager
+            Workspace
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -16,9 +17,16 @@
 
             <div class="">
                 <ul class="nav navbar-nav">
+
                     <li>
                         <a href="#" class="add-widget" >
                             <i class="fa fa-plus-square"></i> <span class="small">new widget</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="{{pathFor 'home'}}"  >
+                            <i class="fa fa-home"></i>
                         </a>
 
                     </li>

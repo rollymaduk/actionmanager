@@ -4,14 +4,16 @@
             <h3 class="box-title">Widget</h3>
         </div>
         <div class="box-body">
+            <b>{{formType}}</b>
             {{#autoForm collection='Widgets' id='wf' type=formType doc=widgetObj}}
-            {{>afQuickField  name='title'}}
-            {{>afQuickField  name='type'}}
+                <fieldset>
+                    {{>afQuickField  name='title'}}
+                    {{>afQuickField  name='type'}}
 
-            {{>afQuickField  name='data.table' options=tables}}
+                    {{>afQuickField  name='data.table' options=tables}}
 
-                {{>afQuickField  name='data.group' options=groups}}
-                {{>afQuickField  name='data.aggregate'}}
+                    {{>afQuickField  name='data.group' options=groups}}
+
                     <div class="form-group">
                         <label class="control-label" for="">Values</label>
                         <ul class="todo-list">
@@ -24,6 +26,20 @@
                         </ul>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="">Filters</label>
+                        <ul class="todo-list">
+                            <li><a href="#" style="text-decoration: none" class="manage-filters"><i class="fa fa-plus"></i> <span class="text">add new</span></a></li>
+                            {{#each filters}}
+                                <li><span class="text">{{field}} | {{value}}</span>
+                                    <div class="tools"><i class="fa fa-edit"></i><i class="fa fa-trash-o"></i></div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                </fieldset>
+                <button class="btn btn-primary">save</button>
 
 
             <!--<div class="box-group" id="accordion">

@@ -1,0 +1,11 @@
+<template name="manageFilters">
+    {{#autoForm schema="Schema.FilterSchema" doc=this id='mf'}}
+        <fieldset>
+            {{>afQuickField name='groupOperator'}}
+            {{>afQuickField name='field' options=fields}}
+            {{>afQuickField name='operator'}}
+            {{>afQuickField name='value' type="selectize" selectize=valuesSelectize }}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Insert</button>
+    {{/autoForm}}
+</template>

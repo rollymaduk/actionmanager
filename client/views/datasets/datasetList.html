@@ -31,6 +31,9 @@
     <div class="small-box-footer">
         <a  href="{{pathFor 'manage-dataset'}}" >
             <i class="fa fa-cog"></i></a>
+        {{#afModal  collection="Datasets" operation="update" doc=_id}}
+            <i class="fa fa-edit"></i>
+        {{/afModal}}
         {{#afModal  collection="Datasets" operation="remove" doc=_id}}
             <i class="fa fa-times-circle"></i>
         {{/afModal}}
